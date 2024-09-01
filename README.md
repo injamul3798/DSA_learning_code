@@ -7,4 +7,4 @@ Explore fundamental concepts and practice problem-solving with this hands-on cod
 ## Md. Injamul Haque
 ### Machine Learning Engineer, DevtechGuru Limited Bangladesh
 ### Machine Learning Researcher,vHealth Informatics Research Lab
-### BSc in CSE, Daffodil International University 
+### BSc in CSE, Daffodil International University

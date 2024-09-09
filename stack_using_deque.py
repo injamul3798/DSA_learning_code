@@ -1,3 +1,8 @@
+
+# Stack operations:
+ # push ,pop, top element and isempty
+
+
 # check the stack is empty or not 
 def is_empty(stack):
     return len(stack) == 0

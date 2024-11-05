@@ -16,7 +16,8 @@ class Solution(object):
             return []
         
         result = []  # This will store the nodes level by level
-        queueElement = deque([root])  # Queue to manage nodes at each level
+        queueElement = deque()  # Queue to manage nodes at each level
+        queueElement.append(root)
 
         while queueElement:
             current_at_level = len(queueElement)  # Number of nodes at the current level

@@ -1,5 +1,4 @@
-# Data Structures and Algorithms in Python
-
+# Data Structures and Algorithms in Python And My daily Problem Solving challenge
 ## Overview
 This repository contains a collection of implementations of various Data Structures and Algorithms (DSA) using Python. The goal is to provide an easy-to-understand and well-documented source of code for learning and reference purposes.
 

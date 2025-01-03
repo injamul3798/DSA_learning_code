@@ -1,31 +1,44 @@
-class Solution(object):
-    def findCircleNum(self, adj):
-        """
-        :type isConnected: List[List[int]]
-        :rtype: int
-        """
-        v = len(adj)
-        adj_list = {}
-        # for i in range(v):
-        #     adj_list[i] = []
-        for i in range(v):
-            adj_list[i] = []
-            for j in range(v):
-                if adj[i][j] == 1 and i != j:
-                    adj_list[i].append(j)
+from collections import deque
+class Solution:
+    def findCircleNum(self,grid):
+        m  = len(grid)
+        n = len(grid[0])
+        
+        v = len(grid)
         visited = set()
-        cnt = 0
-        def dfs(node):
+     
+        adj_list = {}
+        # Now make a adjacency list
+        for i in range(m):
+            adj_list[i] = []
+            for j in range(n):
+                if grid[i][j] == 1 and i !=j:
+                   adj_list[i].append(j)
+                
+        def bfs(node):
             visited.add(node)
+            queue = deque()
+            queue.append(node)
+            while(queue):
+                node = queue.popleft()
+                for neighbhor in adj_list[node]:
+                    if neighbhor not in visited:
+                        visited.add(neighbhor)
+                        queue.append(neighbhor)
+        
+        # def dfs(node):
+        #     visited.add(node)
             
-            for neighbhor in adj_list[node]:
-                if neighbhor not in visited:
-                    dfs(neighbhor)
-            return visited
-            
-        for i in range(v):
-            if i not in visited:
+        #     for neighbhor in adj_list[node]:
+        #         if neighbhor not in visited:
+        #             dfs(neighbhor)
+        #     return visited
+                
+        cnt = 0
+        for vertex in range(v):
+            if vertex not in visited:
                 cnt += 1
-                dfs(i)
-
+                bfs(vertex)
+               
         return cnt
+        

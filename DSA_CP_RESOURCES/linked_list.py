@@ -5,6 +5,13 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+    def insert_at_the_first(self,val):
+       
+        node = Node(val)
+        node.next = self.head
+        self.head = node
+         
+        
     def insert_at_the_end(self,val):
         node = Node(val)
         if self.head is None:
@@ -41,4 +48,7 @@ data = int(input('New Data to be inserted: '))
 pos = int(input('Position: '))
 lis.insert_at_position(data,pos)
 
+lis.print_lis()
+val = int(input('New Data to be inserted in front: '))
+lis.insert_at_the_first(val)
 lis.print_lis()

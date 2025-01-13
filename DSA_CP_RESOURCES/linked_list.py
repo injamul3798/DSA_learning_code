@@ -2,7 +2,6 @@ class Node:
     def __init__(self,val):
         self.val = val
         self.next = None
-
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -15,15 +14,31 @@ class LinkedList:
             while(current.next != None):
                 current = current.next
             current.next = node
+    def insert_at_position(self,val,pos):
+        node = Node(val)
+        if not self.head:
+            self.head = node
+            return
+        current = self.head
+        for _ in range(pos-1):
+            current = current.next
+        node.next = current.next
+        current.next = node
+        
     def print_lis(self):
         current = self.head
         while current:
             print(current.val)
             current = current.next
-
-
+            
 n = int(input())
 lis = LinkedList()
 for _ in range(n):
     lis.insert_at_the_end(int(input()))
+lis.print_lis()
+
+data = int(input('New Data to be inserted: '))
+pos = int(input('Position: '))
+lis.insert_at_position(data,pos)
+
 lis.print_lis()

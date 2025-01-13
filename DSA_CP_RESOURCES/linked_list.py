@@ -32,10 +32,16 @@ class LinkedList:
         current.next = node
         
     def delete_at_position(self,pos):
-        current = self.head
-        for _ in range(pos-1):
-            current = current.next
-        current.next = current.next.next
+        if pos==0:
+            return self.head.next
+        else:
+            current = self.head
+            for _ in range(pos-1):
+                current = current.next
+            current.next = current.next.next
+            return self.head
+
+         
         
     def print_lis(self):
         current = self.head

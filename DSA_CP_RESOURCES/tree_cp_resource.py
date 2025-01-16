@@ -1,0 +1,76 @@
+class Node:
+    def __init__(self,val):
+        self.val = val
+        self.left = None
+        self.right = None
+class Tree:
+    def __init__(self):
+        self.head = None
+        
+    #Creating Tree
+    def build_tree(self,val):
+        # Making root Node
+        if not self.head:
+            self.head = Node(val)
+        else:
+            current = self.head
+            while True:
+                # Building Left Tree
+                if current.val > val:
+                    if current.left:
+                        current = current.left
+                    else:
+                        current.left = Node(val)
+                        break
+                else:
+                    if current.right:
+                        current = current.right
+                    else:
+                        current.right = Node(val)
+                        break
+       
+    def print_tree_using_pre_order(self,root):
+        if root:
+            print(root.val)
+            if root.left:
+                self.print_tree_using_pre_order(root.left)
+            if root.right:
+                self.print_tree_using_pre_order(root.right)
+    def print_tree_using_post_order(self,root):
+        if root:
+            if root.left:
+                self.print_tree_using_post_order(root.left)
+            if root.right:
+                self.print_tree_using_post_order(root.right)
+            print(root.val)
+        # if root:
+        #     print(root.val)
+        #     if root.left:
+        #         self.print_tree_using_pre_order(root.left)
+        #     if root.right:
+        #         self.print_tree_using_pre_order(root.right)
+    def print_tree_using_in_order(self,root):
+        if root:
+            if root.left:
+                self.print_tree_using_in_order(root.left)
+            print(root.val)
+            if root.right:
+                self.print_tree_using_in_order(root.right)
+         
+
+if __name__ == '__main__':
+    t = int(input())
+    for _ in range(t):
+        arr = list(map(int,input().split()))
+        obj = Tree()
+        for val in arr:
+            obj.build_tree(val)
+        print("In-order Traversal:")
+        obj.print_tree_using_in_order(obj.head)
+        print("\nPre-order Traversal:")
+        obj.print_tree_using_pre_order(obj.head)
+        print("\nPost-order Traversal:")
+        obj.print_tree_using_post_order(obj.head)
+        print()
+        
+        

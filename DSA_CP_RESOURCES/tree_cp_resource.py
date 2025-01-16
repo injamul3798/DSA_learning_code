@@ -74,7 +74,7 @@ class Tree:
         return cnt-1
 
     # Print value by Level order Tree
-    def levelOrder(root):
+    def levelOrder(self,root):
         queue = deque([root])
             
         while queue:
@@ -82,7 +82,7 @@ class Tree:
             
             while level:
                 current = queue.popleft()
-                print(current.info,end = ' ')
+                print(current.val,end = ' ')
                 if current.left:
                     queue.append(current.left)
                 if current.right:

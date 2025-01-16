@@ -88,6 +88,27 @@ class Tree:
                 if current.right:
                     queue.append(current.right)
                 level -= 1
+    def insert(self, val):
+        #Enter you code here.
+        if not self.head:
+            self.head  = Node(val)
+            return self.head
+        else:
+            current = self.head
+            while True:
+                if current.info > val:
+                    if current.left:
+                        current = current.left
+                    else:
+                        current.left = Node(val)
+                        break
+                else:
+                    if current.right:
+                        current = current.right
+                    else:
+                        current.right = Node(val)
+                        break
+        return self.head
 
          
 

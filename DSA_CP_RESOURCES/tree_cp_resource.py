@@ -56,6 +56,20 @@ class Tree:
             print(root.val)
             if root.right:
                 self.print_tree_using_in_order(root.right)
+    def find_hight_of_binary_tree(self,root):
+        queue = deque([root])
+        cnt = 0
+        while queue:
+            level = len(queue)
+            cnt += 1
+            while level:
+                current = queue.popleft()
+                if current.left:
+                    queue.append(current.left)
+                if current.right:
+                    queue.append(current.right)
+                level -= 1
+        return cnt-1
          
 
 if __name__ == '__main__':
